@@ -1,0 +1,40 @@
+{
+  "name": "gyrio",
+  "version": "0.0.0",
+  "description": "gyroscope + socket.io",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --use_strict index.js",
+    "lint": "node_modules/gulp/bin/gulp.js lint",
+    "deploy": "NODE_ENV=development node_modules/gulp/bin/gulp.js deploy",
+    "dev": "NODE_ENV=development nodemon --use_strict index.js"
+  },
+  "pre-commit": [
+    "lint"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/otelnov/gyrio"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/otelnov/gyrio/issues"
+  },
+  "homepage": "https://github.com/otelnov/gyrio#readme",
+  "dependencies": {
+    "body-parser": "1.14.1",
+    "config": "1.17.1",
+    "express": "4.13.3",
+    "redis": "2.4.2"
+  },
+  "devDependencies": {
+    "eslint-config-airbnb": "1.0.2",
+    "gulp": "3.9.0",
+    "gulp-eslint": "1.1.1",
+    "gulp-ssh": "0.5.3",
+    "pre-commit": "1.1.2"
+  }
+}
