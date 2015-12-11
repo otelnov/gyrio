@@ -159,7 +159,7 @@ var App = (function () {
 var gameId = window.location.pathname.replace(/\//g, '');
 gameId = gameId.replace('gyrio', '');
 
-var socket = io('https://telnov.com/gyrio/socket.io');
+var socket = io('https://telnov.com/gyrio/root');
 
 var app = new App(gameId, socket);
 
