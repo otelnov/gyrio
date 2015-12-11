@@ -129,7 +129,7 @@ class App {
 let gameId = window.location.pathname.replace(/\//g, '');
 gameId = gameId.replace('gyrio', '');
 
-let socket = io('https://telnov.com/gyrio/root');
+let socket = io('https://telnov.com', {path: '/gyrio/socket.io'});
 
 let app = new App(gameId, socket);
 
