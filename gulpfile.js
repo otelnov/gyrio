@@ -4,6 +4,8 @@ const gulp = require('gulp');
 const eslint = require('gulp-eslint');
 const GulpSSH = require('gulp-ssh');
 const config = require('config');
+const babel = require('gulp-babel');
+const livereload = require('gulp-livereload');
 
 gulp.task('lint', () => {
   return gulp.src(['**/*.js', '!node_modules/**'])
@@ -27,4 +29,20 @@ gulp.task('deploy', () => {
   return gulpSSH
     .shell(['cd /var/www/gyrio', 'git pull origin master', 'npm install', 'pm2 restart index.js'], { filePath: 'shell.log' })
     .pipe(gulp.dest('logs'));
+});
+
+let srcPath = './www/src/**/*.js';
+
+gulp.task('babel', () => {
+  return gulp.src(srcPath)
+    .pipe(babel({
+      presets: ['es2015']
+    }))
+    .pipe(gulp.dest('./www/build'))
+    .pipe(livereload());
+});
+
+gulp.task('watch', () => {
+  livereload.listen();
+  gulp.watch(srcPath, ['babel']);
 });
