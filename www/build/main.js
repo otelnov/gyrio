@@ -157,7 +157,9 @@ var App = (function () {
 })();
 
 var gameId = window.location.pathname.replace(/\//g, '');
-var socket = io('http://192.168.0.102:7444');
+gameId = gameId.replace('gyrio', '');
+
+var socket = io('https://telnov.com/gyrio/');
 
 var app = new App(gameId, socket);
 

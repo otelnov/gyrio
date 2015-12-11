@@ -1,11 +1,11 @@
 'use strict';
 
 module.exports = (app, io) => {
-  app.get('/', genId);
+  app.get('/gyrio', genId);
 
   function genId(req, res) {
     let id = Date.now();
-    res.redirect('/' + id);
+    res.redirect('/gyrio/' + id);
   }
 
   io.on('connection', socket => {

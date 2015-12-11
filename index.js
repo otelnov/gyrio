@@ -17,7 +17,7 @@ http.listen(port, () => {
   console.log('app start on port ' + config.port);
 });
 
-app.use('/:id', express.static(__dirname + '/www'));
+app.use('/gyrio/:id', express.static(__dirname + '/www'));
 require('./routes')(app, io);
 
 app.use((req, res) => {

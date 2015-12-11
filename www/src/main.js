@@ -127,7 +127,9 @@ class App {
 }
 
 let gameId = window.location.pathname.replace(/\//g, '');
-let socket = io('http://192.168.0.102:7444');
+gameId = gameId.replace('gyrio', '');
+
+let socket = io('https://telnov.com/gyrio/');
 
 let app = new App(gameId, socket);
 
