@@ -2,9 +2,10 @@
 
 const express = require('express');
 const config = require('config');
-// const redis = require('redis');
 const app = express();
+/*eslint-disable */
 const http = require('http').Server(app);
+/*eslint-enable */
 const io = require('socket.io')(http);
 
 require('./config')(app);

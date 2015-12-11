@@ -136,16 +136,18 @@ var App = (function () {
   }, {
     key: 'initAccelerometer',
     value: function initAccelerometer() {
+      var _this5 = this;
+
       window.ondeviceorientation = function (event) {
         // let alpha = Math.round(event.alpha);
         var beta = Math.round(event.beta);
         // let gamma = Math.round(event.gamma);
         if (beta > 0) {
-          this.socket.emit('move', { gameId: this.gameId, direction: 'left', event: 'stop' });
-          this.socket.emit('move', { gameId: this.gameId, direction: 'right', event: 'start' });
+          _this5.socket.emit('move', { gameId: _this5.gameId, direction: 'left', event: 'stop' });
+          _this5.socket.emit('move', { gameId: _this5.gameId, direction: 'right', event: 'start' });
         } else {
-          this.socket.emit('move', { gameId: this.gameId, direction: 'right', event: 'stop' });
-          this.socket.emit('move', { gameId: this.gameId, direction: 'left', event: 'start' });
+          _this5.socket.emit('move', { gameId: _this5.gameId, direction: 'right', event: 'stop' });
+          _this5.socket.emit('move', { gameId: _this5.gameId, direction: 'left', event: 'start' });
         }
       };
     }
@@ -153,8 +155,6 @@ var App = (function () {
 
   return App;
 })();
-
-;
 
 var gameId = window.location.pathname.replace(/\//g, '');
 var socket = io('http://192.168.0.102:7444');

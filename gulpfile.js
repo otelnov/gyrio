@@ -8,7 +8,7 @@ const babel = require('gulp-babel');
 const livereload = require('gulp-livereload');
 
 gulp.task('lint', () => {
-  return gulp.src(['**/*.js', '!node_modules/**'])
+  return gulp.src(['**/*.js', '!node_modules/**', '!www/build/**', '!www/lib/**'])
     .pipe(eslint({ useEslintrc: true }))
     .pipe(eslint.format());
 });
