@@ -5,7 +5,7 @@ module.exports = (app, io) => {
 
   function genId(req, res) {
     let id = Date.now();
-    res.redirect('/' + id);
+    res.redirect('/gyrio/' + id);
   }
 
   io.on('connection', socket => {
