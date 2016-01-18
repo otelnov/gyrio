@@ -41,6 +41,17 @@ class App {
     this.enemyHeight = 50;
     this.enemySpeed = 3;
     this.enemyArray = [];
+
+    this.showTimer = true;
+    this.timerValue = 5;
+    let timerInterval = setInterval(() => {
+      if (this.timerValue === 0) {
+        clearInterval(timerInterval);
+        this.showTimer = false;
+      } else {
+        this.timerValue--;
+      }
+    }, 1000);
   }
 
   gameInit() {
@@ -50,6 +61,7 @@ class App {
   }
 
   startGame() {
+    this.runTimer();
     this.drawPlayer();
     this.generateEnemy();
     this.move();
@@ -101,6 +113,15 @@ class App {
     this.ctx.fillText('Esc - pause', 30, 50);
     this.ctx.fillText('Enter - start new game', 30, 80);
     this.ctx.fillText('Space - fire', 30, 110);
+    this.ctx.fillText('Left, Right, Up, Down - move', 30, 140);
+  }
+
+  runTimer() {
+    if (this.showTimer) {
+      this.ctx.fillStyle = 'lightgreen';
+      this.ctx.font = '80px Arial';
+      this.ctx.fillText(this.timerValue, this.canvas.width / 2 - 25, this.canvas.height / 2 - 25);
+    }
   }
 
   move() {
@@ -193,6 +214,7 @@ class App {
     this.drawFire();
     this.drawEnemy();
     this.addText();
+    this.runTimer();
 
     setTimeout(() => {
       this.move();
