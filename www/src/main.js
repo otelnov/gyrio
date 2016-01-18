@@ -168,7 +168,7 @@ class App {
               if (fire.left >= enemy.left && fire.left <= enemy.left + this.enemyWidth) {
                 if (fire.top <= enemy.top + this.enemyHeight && fire.top + this.fireHeight >= enemy.top) {
                   enemyToRemove.push(j);
-                  fireToRemove.push(n)
+                  fireToRemove.push(n);
                 }
               }
             });
@@ -177,12 +177,12 @@ class App {
         if (fireToRemove.length > 0) {
           fireToRemove.forEach(i => {
             this.fireArray.splice(i, 1);
-          })
+          });
         }
         if (enemyToRemove.length > 0) {
           enemyToRemove.forEach(k => {
             this.enemyArray.splice(k, 1);
-          })
+          });
         }
       }
     }
